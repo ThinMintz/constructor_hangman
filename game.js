@@ -1,63 +1,57 @@
 var inquirer = require("inquirer");
+var userGuess = process.argv [1];
+var wordBank = ["Cat", "Dog"];
+var blanks = "";
 
-inquirer
-  .prompt([
+//var lettersToGuess = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+var LetterGuessed = function(letter) {
+  this.letter = letter;
+  
+  //was the letter in the word or not
+  this.letterPresent = true;
+
+  this.showLetter = function() {
+    if (this.letterPresent == true) {
+      return this.letter;
+    } else {
+      return "_";
+    }
+  };
+};
+
+
+var WordsToGuess = function(word) {
+  this.word = word;
+}
+
+//how many time to ask the question
+var count = 0;
+
+
+//asking the question to Guess a letter
+var askQuestion = function() {
+
+/*if they guess the wrong letter more that 
+10 times they have to restart the game*/
+//WANT TO TRY THIS BUT SINCE I CAN"T GET REGULAR STUFF WORKING BETTER NOT GET FANCY
+//var if (count < 10)
+
+inquirer.prompt([
   {
     type: "input",
-    name: "letters"
-    message: "Guess a letter?",
+    name: "letters",
+    message: "Guess a letter?"
   }
+  //after the prompt, store the user's response in a variable called
+    ]);then(function(userLetter) {
+      //if userLetter is equal to a letter in the word, append the letter to the underscore
 
-    ])
+    //to count the amount of times a questions is asked
+      //and count++:
+    //to run the function again until the count reaches 10
+      //askQuestion();
+    })
+};
 
-   .then(function(inquirerResponse) {
-    // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
-    if (inquirerResponse.confirm) {
-      console.log("\nWelcome " + inquirerResponse.username);
-      console.log("Your " + inquirerResponse.pokemon + " is ready for battle!\n");
-    }
-    else {
-      console.log("\nThat's okay " + inquirerResponse.username + ", come again when you are more sure.\n");
-    }
-  });
 
-   /**
- * Input prompt example
- */
-
-'use strict';
-var inquirer = require('..');
-
-var questions = [
-  {
-    type: 'input',
-    name: 'first_name',
-    message: "What's your first name"
-  },
-  {
-    type: 'input',
-    name: 'last_name',
-    message: "What's your last name",
-    default: function() {
-      return 'Doe';
-    }
-  },
-  {
-    type: 'input',
-    name: 'phone',
-    message: "What's your phone number",
-    validate: function(value) {
-      var pass = value.match(
-        /^([01]{1})?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})\s?((?:#|ext\.?\s?|x\.?\s?){1}(?:\d+)?)?$/i
-      );
-      if (pass) {
-        return true;
-      }
-
-      return 'Please enter a valid phone number';
-    }
-  }
-];
-
-inquirer.prompt(questions).then(answers => {
-  console.log(JSON.stringify(answers, null, '  '));
