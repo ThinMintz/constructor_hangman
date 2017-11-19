@@ -1,0 +1,23 @@
+{
+  "name": "constructor_hangman",
+  "version": "1.0.0",
+  "description": "A constructor hangman game",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThinMintz/constructor_hangman.git"
+  },
+  "author": "Rachel R.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThinMintz/constructor_hangman/issues"
+  },
+  "homepage": "https://github.com/ThinMintz/constructor_hangman#readme",
+  "dependencies": {
+    "inquirer": "^4.0.0",
+    "prompt": "^1.0.0"
+  }
+}
