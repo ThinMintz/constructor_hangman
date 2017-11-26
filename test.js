@@ -1,12 +1,29 @@
 // dependency for inquirer npm package
 var inquirer = require("inquirer");
+var wordBank = ["dog"];
 
 // constructor function used to create programmers objects
 function UserGuess(letter) {
   this.letter = letter;
-}
+  //is the letter present in the word
+  this.present = false;
 
-// creates the printInfo method and applies it to all programmer objects
+  //if the letter is present in the word, the letter should replace the underscore
+  this.showLetter = function() {
+    if (this.letterPresent == false) {
+      return "_";
+    } else {
+      return this.letter;
+    }
+  };
+}
+//this function should loop through the first item in the wordBank array and run the userGuess function
+function word() {
+  for (var i = 0; i < wordBank[1].length; i++) 
+    UserGuess();
+}; 
+
+// creates the printInfo method and applies it to all UserGuess objects
 UserGuess.prototype.printInfo = function() {
   console.log("You guessed: " + this.letter);
 };
@@ -16,7 +33,7 @@ var count = 0;
 
 var askQuestion = function() {
   // if statement to ensure that our questions are only asked five times
-  if (count < 10) {
+  if (count < 3) {
     // runs inquirer and asks the user a series of questions whose replies are
     // stored within the variable answers inside of the .then statement
     inquirer.prompt([
@@ -34,6 +51,8 @@ var askQuestion = function() {
       guessedLetter.printInfo();
       // add one to count to increment our recursive loop by one
       count++;
+      //run the word function
+      UserGuess.showLetter();
       // run the askquestion function again so as to either end the loop or ask the questions again
       askQuestion();
     });
@@ -45,5 +64,5 @@ var askQuestion = function() {
   }
 };
 
-// call askquestion to run our code
+// call askquestion to run the code
 askQuestion();
