@@ -1,5 +1,5 @@
 var inquirer = require("inquirer");
-var userGuess = process.argv [1];
+/*var userGuess = process.argv [1];
 var wordBank = ["Cat", "Dog"];
 var blanks = "";
 
@@ -26,7 +26,7 @@ var WordsToGuess = function(word) {
 }
 
 //how many time to ask the question
-var count = 0;
+var count = 0;*/
 
 
 //asking the question to Guess a letter
@@ -44,14 +44,16 @@ inquirer.prompt([
     message: "Guess a letter?"
   }
   //after the prompt, store the user's response in a variable called
-    ]);then(function(userLetter) {
+    ]);then
+
+/*  (function(userLetter) {
       //if userLetter is equal to a letter in the word, append the letter to the underscore
 
     //to count the amount of times a questions is asked
       //and count++:
     //to run the function again until the count reaches 10
       //askQuestion();
-    })
+    })*/
 };
 
 
