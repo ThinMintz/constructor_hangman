@@ -19,8 +19,11 @@ function UserGuess(letter) {
 }
 //this function should loop through the first item in the wordBank array and run the userGuess function
 function word() {
-  for (var i = 0; i < wordBank[1].length; i++) 
-    UserGuess();
+    return wordBank[Math.floor(Math.random() * wordBank.length)];
+}
+
+/*  for (var i = 0; i < wordBank[1].length; i++) 
+    UserGuess();*/
 }; 
 
 // creates the printInfo method and applies it to all UserGuess objects
